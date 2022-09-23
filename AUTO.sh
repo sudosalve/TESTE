@@ -22,6 +22,19 @@ function autoexec () {
       echo -e "\033[1;31mAUTO EXECUÇÃO DESATIVADO!\033[0m"
       sleep 1.5s
       menu2
-menu
+   else
+      clear
+      echo -e "\033[1;32mATIVANDO AUTO EXECUÇÃO\033[0m"
+      autmenu () {
+         grep -v "^menu;" /etc/profile > /tmp/tmpass && mv /tmp/tmpass /etc/profile
+         echo "menu;" >> /etc/profile
+      }
+      echo ""
+      fun_bar 'autmenu'
+      echo ""
+      echo -e "\033[1;32mAUTO EXECUÇÃO ATIVADO!\033[0m"
+      sleep 1.5s
+      menu2
+   fi
 ;;
 esac
